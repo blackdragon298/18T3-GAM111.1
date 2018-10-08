@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
 	public Vector2 moveDirection;
-
 	// Use this for initialization
 	void Start () {
 		

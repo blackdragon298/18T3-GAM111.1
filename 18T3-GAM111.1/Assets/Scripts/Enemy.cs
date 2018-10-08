@@ -5,6 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
 	Health myHealth;
+	public enum EnemyType { Follow, Turret, Patrol };
+	public EnemyType type;
 
 	// Use this for initialization
 	void Start () {

@@ -25,6 +25,7 @@ public class HealthPickup : MonoBehaviour
 
 		switch (size)
 		{
+			// Increase Player Health based on size Enum
 			case HealthPackSize.Standard:
 				health.ChangeHealth(1);
 				break;
@@ -34,5 +35,7 @@ public class HealthPickup : MonoBehaviour
 			default:
 				break;
 		}
+
+		Destroy(this.gameObject);
 	}
 }

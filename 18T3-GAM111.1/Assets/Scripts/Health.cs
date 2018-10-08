@@ -41,12 +41,14 @@ public class Health : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		GameObject other = collision.gameObject;
+
+		// Health Pack Detection
 		if (other.CompareTag("HealthPack"))
 		{
-			HealthPickup health = other.GetComponent<HealthPickup>();
+			HealthPickup healthPack = other.GetComponent<HealthPickup>();
 			if (currentHealth < maxHealth)
 			{
-				health.Trigger(this.gameObject);
+				healthPack.Trigger(this.gameObject);
 			}
 
 		}
