@@ -36,6 +36,14 @@ public class Health : MonoBehaviour {
 				ChangeHealth(-1);
 			}
 		}
+
+		if (this.CompareTag("Player"))
+		{
+			if (other.CompareTag("Enemy"))
+			{
+				ChangeHealth(-1);
+			}
+		}
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -52,10 +60,25 @@ public class Health : MonoBehaviour {
 			}
 
 		}
+
+		if (this.CompareTag("Enemy"))
+		{
+			if (other.CompareTag("Bullet"))
+			{
+				ChangeHealth(-1);
+				other.GetComponent<Bullet>().ParticleTrigger();
+				Destroy(other, 0.2f);
+			}
+		}
 	}
 
 	public void ChangeHealth(int change)
 	{
 		currentHealth += change;
+	}
+
+	public int GetHealth()
+	{
+		return currentHealth;
 	}
 }

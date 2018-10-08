@@ -18,7 +18,12 @@ public class EnemyMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		direction = player.transform.position - this.transform.position;
-		
+
+		if (player.GetComponent<Health>().GetHealth() <= 0)
+		{
+			speed = 0;
+		}
+
 		switch (enemy.type)
 		{
 			case Enemy.EnemyType.Follow:

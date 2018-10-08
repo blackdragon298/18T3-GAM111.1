@@ -25,10 +25,6 @@ public class Enemy : MonoBehaviour {
 	{
 		GameObject other = collision.gameObject;
 
-		if (other.CompareTag("Bullet"))
-		{
-			myHealth.ChangeHealth(-1);
-			Destroy(other);
-		}
+		
 	}
 }

@@ -8,6 +8,9 @@ public class PlayerWeapon : MonoBehaviour {
 	public GameObject bullet;
 	public float bulletRange;
 
+	public enum WeaponType { Standard, other }; // Still need to add more weapons
+	public WeaponType weaponType;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -19,22 +22,24 @@ public class PlayerWeapon : MonoBehaviour {
 		{
 			timer -= Time.deltaTime;
 		}
-		
-		if (Input.GetAxis("HorizontalShoot") > 0.25f && timer < 0)
+		if (timer < 0)
 		{
-			Shoot(Vector2.right);
-		}
-		else if (Input.GetAxis("HorizontalShoot") < -0.25f && timer < 0)
-		{
-			Shoot(Vector2.left);
-		}
-		else if (Input.GetAxis("VerticalShoot") > 0.25f && timer < 0)
-		{
-			Shoot(Vector2.up);
-		}
-		else if (Input.GetAxis("VerticalShoot") < -0.25f && timer < 0)
-		{
-			Shoot(Vector2.down);
+			if (Input.GetAxis("HorizontalShoot") > 0.25f)
+			{
+				Shoot(Vector2.right);
+			}
+			else if (Input.GetAxis("HorizontalShoot") < -0.25f)
+			{
+				Shoot(Vector2.left);
+			}
+			else if (Input.GetAxis("VerticalShoot") > 0.25f)
+			{
+				Shoot(Vector2.up);
+			}
+			else if (Input.GetAxis("VerticalShoot") < -0.25f)
+			{
+				Shoot(Vector2.down);
+			}
 		}
 	}
 

@@ -144,9 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6297c9b89b06be44ebea5703d9266d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 10
   currentHealth: 0
-  isAlive: 0
+  isAlive: 1
 --- !u!114 &114238290514988414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,6 +161,7 @@ MonoBehaviour:
   timer: 0
   bullet: {fileID: 1581174280804088, guid: b2d7852bbeca2e04c9ae70242f0715d0, type: 2}
   bulletRange: 0
+  weaponType: 0
 --- !u!114 &114907316362233880
 MonoBehaviour:
   m_ObjectHideFlags: 1
