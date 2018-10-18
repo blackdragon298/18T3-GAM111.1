@@ -5,8 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - HealthPack
   - Bullet
+  - Wall
+  - Pickup
+  - Missile
   layers:
   - Default
   - TransparentFX

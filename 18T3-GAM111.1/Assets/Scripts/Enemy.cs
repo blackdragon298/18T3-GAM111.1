@@ -2,22 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour
+{
 
 	Health myHealth;
-	public enum EnemyType { Follow, Turret, Patrol };
+	public enum EnemyType { Follow, FastFollow, Turret };
 	public EnemyType type;
+	public Sprite[] sprites;
+	private SpriteRenderer spriteRenderer;
 
 	// Use this for initialization
-	void Start () {
+	void Start()
+	{
 		myHealth = GetComponent<Health>();
+		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
+	void Update()
+	{
+		spriteRenderer.sprite = sprites[(int)type];
+
 		if (myHealth.currentHealth <= 0)
 		{
+			GameObject.FindObjectOfType<ScoreManager>().IncreaseScore(1);
 			Destroy(this.gameObject);
+
 		}
 	}
 
@@ -25,6 +35,6 @@ public class Enemy : MonoBehaviour {
 	{
 		GameObject other = collision.gameObject;
 
-		
+
 	}
 }

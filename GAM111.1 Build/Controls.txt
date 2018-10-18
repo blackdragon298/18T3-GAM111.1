@@ -1,0 +1,18 @@
+---CONTROLS---
+
+Movement:
+W 	- Up
+A 	- Left
+S 	- Down
+d 	- Right
+
+Shooting:
+Up Arrow Key 	- Up
+Left Arrow Key	 - Left
+Down Arrow Key	 - Down
+Right Arrow Key	 - Right
+
+Change Weapons:
+Left Control 	- Standard Gun
+Left Shift 	- Missile
+Left Alt 	- Shotgun *Not Implemented*

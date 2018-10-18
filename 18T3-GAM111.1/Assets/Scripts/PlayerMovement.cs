@@ -5,16 +5,20 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 	public float speed;
-
-	// Use this for initialization
-	void Start()
-	{
-
-	}
+	public bool speedBoost;
+	public float speedBoostTimer;
 
 	// Update is called once per frame
 	void Update()
 	{
+		if (speedBoostTimer > 0)
+		{
+			speedBoostTimer -= Time.deltaTime;
+		}
+		else
+		{
+			speedBoost = false;
+		}
 		if (GetComponent<Health>().isAlive)
 		{
 			Vector2 movement = new Vector2(0, 0);
@@ -45,7 +49,23 @@ public class PlayerMovement : MonoBehaviour
 			{
 				movement.y = 0;
 			}
-			GetComponent<Rigidbody2D>().AddForce(movement * speed * 100);
+
+			// Speed Boost Check
+			if (speedBoost)
+			{
+				GetComponent<Rigidbody2D>().AddForce(movement * speed * 100 * 1.5f);
+			}
+			else
+			{
+				GetComponent<Rigidbody2D>().AddForce(movement * speed * 100);
+			}
+
 		}
+	}
+
+	public void ActivateSpeedBoost()
+	{
+		speedBoost = true;
+		speedBoostTimer = 5;
 	}
 }

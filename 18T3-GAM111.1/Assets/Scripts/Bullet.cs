@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
+	// "moveDirection" is given to the bulled when it is spawned
 	public Vector2 moveDirection;
-
-	// Use this for initialization
-	void Start()
-	{
-
-	}
 
 	// Update is called once per frame
 	void Update()
@@ -22,5 +16,17 @@ public class Bullet : MonoBehaviour
 	public void ParticleTrigger()
 	{
 		GetComponent<ParticleSystem>().Play();
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		// The problem that was encountered with collision detection 
+		// was solved by adding a "Rigidbody2D" to the bullet prefab 
+
+		GameObject other = collision.gameObject;
+		if (other.tag == "Wall")
+		{
+			Destroy(this.gameObject);
+		}
 	}
 }
